@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import {
   LineChart, Line, BarChart, Bar, PieChart, Pie, AreaChart, Area,
@@ -20,7 +19,6 @@ const COLORS = {
 };
 
 function AdminAnalytics() {
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [analyticsData, setAnalyticsData] = useState(null);
   const [turnoverData, setTurnoverData] = useState(null);
