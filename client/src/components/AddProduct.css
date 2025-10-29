@@ -1,0 +1,24 @@
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.product-details {
+  background-color: #f0f9ff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.product-details p {
+  margin: 8px 0;
+  color: #1e40af;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

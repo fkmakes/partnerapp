@@ -1,0 +1,232 @@
+/* Mobile-First Partner Dashboard */
+
+.partner-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding-bottom: 20px;
+}
+
+.partner-content {
+  padding: 20px 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.partner-welcome {
+  text-align: center;
+  padding: 30px 20px;
+  margin-bottom: 20px;
+}
+
+.partner-welcome h1 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.partner-subtitle {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* Dashboard Grid - Mobile First */
+.partner-dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Partner Cards - Large Touch Targets */
+.partner-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  min-height: 90px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.partner-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.partner-card:active {
+  transform: scale(0.98);
+}
+
+/* Card Types */
+.partner-card-primary::before {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.partner-card-secondary::before {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.partner-card-info::before {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.partner-card-analytics::before {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.partner-card:active::before {
+  width: 100%;
+  opacity: 0.1;
+}
+
+/* Card Icon */
+.card-icon {
+  font-size: 48px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.card-icon.primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.card-icon.secondary {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.card-icon.info {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.card-icon.analytics {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+/* Card Content */
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-content h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Card Arrow */
+.card-arrow {
+  font-size: 28px;
+  color: #9ca3af;
+  font-weight: 300;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.partner-card:active .card-arrow {
+  transform: translateX(4px);
+}
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  .partner-content {
+    padding: 40px 24px;
+    max-width: 800px;
+  }
+
+  .partner-welcome {
+    padding: 40px 20px;
+  }
+
+  .partner-welcome h1 {
+    font-size: 36px;
+  }
+
+  .partner-subtitle {
+    font-size: 18px;
+  }
+
+  .partner-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .partner-card {
+    padding: 30px 24px;
+    min-height: 120px;
+  }
+
+  .partner-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .partner-card:hover::before {
+    width: 100%;
+    opacity: 0.05;
+  }
+
+  .partner-card:hover .card-arrow {
+    transform: translateX(4px);
+  }
+
+  .card-icon {
+    font-size: 56px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-content h2 {
+    font-size: 22px;
+  }
+
+  .card-content p {
+    font-size: 15px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1024px) {
+  .partner-content {
+    max-width: 1000px;
+  }
+
+  .partner-dashboard-grid {
+    gap: 24px;
+  }
+}

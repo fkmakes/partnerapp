@@ -8,9 +8,7 @@
     "dev": "nodemon server.js",
     "client": "cd client && npm start",
     "dev:all": "concurrently \"npm run dev\" \"npm run client\"",
-    "db:init": "node db/init.js",
-    "build": "cd client && npm install && npm run build",
-    "postinstall": "npm run build"
+    "db:init": "node db/init.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
