@@ -117,8 +117,8 @@ app.post('/api/partners', async (req, res) => {
 
     // Insert new partner
     const result = await pool.query(
-      'INSERT INTO partners (userid, password, partner_type, partner_name, email, phone, address) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-      [userid, hashedPassword, 'partner', partnerName, email, phone, address]
+      'INSERT INTO partners (userid, password, partner_type, partner_name, email, phone, address, plain_password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      [userid, hashedPassword, 'partner', partnerName, email, phone, address, password]
     );
 
     const newPartner = result.rows[0];
@@ -149,7 +149,7 @@ app.post('/api/partners', async (req, res) => {
 app.get('/api/partners', async (req, res) => {
   try {
     const result = await pool.query(
-      'SELECT id, userid, partner_name, email, phone, address, created_at FROM partners WHERE partner_type = $1 ORDER BY created_at DESC',
+      'SELECT id, userid, partner_name, email, phone, address, plain_password, created_at FROM partners WHERE partner_type = $1 ORDER BY created_at DESC',
       ['partner']
     );
 

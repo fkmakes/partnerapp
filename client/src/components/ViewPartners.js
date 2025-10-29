@@ -13,6 +13,7 @@ function ViewPartners() {
   const [selectedOrderId, setSelectedOrderId] = useState(null);
   const [orderDetails, setOrderDetails] = useState(null);
   const [orderItems, setOrderItems] = useState([]);
+  const [copiedId, setCopiedId] = useState(null);
 
   useEffect(() => {
     fetchPartners();
@@ -54,6 +55,15 @@ function ViewPartners() {
 
   const handleViewDetails = (partner) => {
     alert(`View Details for ${partner.partner_name} - This feature will be implemented later`);
+  };
+
+  const copyToClipboard = (text, id) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2000);
+    }).catch(() => {
+      alert('Failed to copy');
+    });
   };
 
   const closeOrdersModal = () => {
@@ -185,6 +195,7 @@ function ViewPartners() {
                   <tr>
                     <th>Partner ID</th>
                     <th>User ID</th>
+                    <th>Password</th>
                     <th>Partner Name</th>
                     <th>Mobile Number</th>
                     <th>Actions</th>
@@ -195,6 +206,18 @@ function ViewPartners() {
                     <tr key={partner.id}>
                       <td className="partner-id">{partner.id}</td>
                       <td><span className="userid-badge">{partner.userid}</span></td>
+                      <td className="password-cell">
+                        <span className="password-text">{partner.plain_password || '-'}</span>
+                        {partner.plain_password && (
+                          <button
+                            className="copy-btn"
+                            onClick={() => copyToClipboard(partner.plain_password, `pwd-${partner.id}`)}
+                            title="Copy password"
+                          >
+                            {copiedId === `pwd-${partner.id}` ? '✓' : '📋'}
+                          </button>
+                        )}
+                      </td>
                       <td className="partner-name">{partner.partner_name || '-'}</td>
                       <td className="phone-number">{partner.phone || '-'}</td>
                       <td className="action-buttons">
