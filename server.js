@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const pool = require('./db/config');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -11,6 +12,9 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
+// Serve static files from React build
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Helper function to generate random password
 function generatePassword(length = 12) {
@@ -1138,6 +1142,11 @@ app.get('/api/analytics/turnover', async (req, res) => {
       message: 'Server error'
     });
   }
+});
+
+// Catch-all route to serve React app for any non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
