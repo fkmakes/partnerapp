@@ -31,7 +31,7 @@ function PartnerCreateOrder() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/products');
+      const response = await fetch('/api/products');
       const data = await response.json();
       if (data.success) {
         setProducts(data.products);
@@ -131,7 +131,7 @@ function PartnerCreateOrder() {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/orders', {
+      const response = await fetch('/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

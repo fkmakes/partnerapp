@@ -27,7 +27,7 @@ function AddPartner() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/partners', {
+      const response = await fetch('/api/partners', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -21,7 +21,7 @@ function ViewProducts() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/products');
+      const response = await fetch('/api/products');
       const data = await response.json();
 
       if (data.success) {
@@ -78,7 +78,7 @@ function ViewProducts() {
 
   const handleSaveProduct = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${selectedProduct.id}`, {
+      const response = await fetch(`/api/products/${selectedProduct.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

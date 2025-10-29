@@ -35,7 +35,7 @@ function AdminAnalytics() {
   const fetchAnalytics = async () => {
     try {
       setLoading(true);
-      let url = 'http://localhost:5000/api/analytics/overview';
+      let url = '/api/analytics/overview';
 
       if (dateFilter !== 'all') {
         const now = new Date();
@@ -68,7 +68,7 @@ function AdminAnalytics() {
 
   const fetchTurnover = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/analytics/turnover');
+      const response = await fetch('/api/analytics/turnover');
       const data = await response.json();
 
       if (data.success) {
@@ -81,7 +81,7 @@ function AdminAnalytics() {
 
   const fetchPartnerDetails = async (partnerId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/analytics/partner/${partnerId}`);
+      const response = await fetch(`/api/analytics/partner/${partnerId}`);
       const data = await response.json();
 
       if (data.success) {

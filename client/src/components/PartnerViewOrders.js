@@ -24,7 +24,7 @@ function PartnerViewOrders() {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/api/partners/${partner.id}/orders`);
+      const response = await fetch(`/api/partners/${partner.id}/orders`);
       const data = await response.json();
 
       if (data.success) {
@@ -39,7 +39,7 @@ function PartnerViewOrders() {
 
   const fetchOrderDetails = async (orderId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}`);
+      const response = await fetch(`/api/orders/${orderId}`);
       const data = await response.json();
 
       if (data.success) {
@@ -58,7 +58,7 @@ function PartnerViewOrders() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+      const response = await fetch(`/api/orders/${orderId}`, {
         method: 'DELETE'
       });
 

@@ -20,7 +20,7 @@ function ViewPartners() {
 
   const fetchPartners = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/partners');
+      const response = await fetch('/api/partners');
       const data = await response.json();
 
       if (data.success) {
@@ -38,7 +38,7 @@ function ViewPartners() {
   const handleViewOrders = async (partner) => {
     setSelectedPartner(partner);
     try {
-      const response = await fetch('http://localhost:5000/api/orders');
+      const response = await fetch('/api/orders');
       const data = await response.json();
 
       if (data.success) {
@@ -64,7 +64,7 @@ function ViewPartners() {
 
   const viewOrderDetails = async (orderId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}`);
+      const response = await fetch(`/api/orders/${orderId}`);
       const data = await response.json();
 
       if (data.success) {
@@ -91,7 +91,7 @@ function ViewPartners() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${selectedOrderId}`, {
+      const response = await fetch(`/api/orders/${selectedOrderId}`, {
         method: 'DELETE'
       });
 
@@ -114,7 +114,7 @@ function ViewPartners() {
 
   const handleStatusChange = async (newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${selectedOrderId}/status`, {
+      const response = await fetch(`/api/orders/${selectedOrderId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

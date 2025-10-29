@@ -32,7 +32,7 @@ function CreateSale() {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/api/partners/${partner.id}/inventory`);
+      const response = await fetch(`/api/partners/${partner.id}/inventory`);
       const data = await response.json();
 
       if (data.success) {
@@ -163,7 +163,7 @@ function CreateSale() {
     try {
       const partner = JSON.parse(sessionStorage.getItem('partner') || '{}');
 
-      const response = await fetch('http://localhost:5000/api/sales', {
+      const response = await fetch('/api/sales', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

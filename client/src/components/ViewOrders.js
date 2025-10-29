@@ -19,7 +19,7 @@ function ViewOrders() {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/orders');
+      const response = await fetch('/api/orders');
       const data = await response.json();
 
       if (data.success) {
@@ -36,7 +36,7 @@ function ViewOrders() {
 
   const viewOrderDetails = async (orderId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}`);
+      const response = await fetch(`/api/orders/${orderId}`);
       const data = await response.json();
 
       if (data.success) {
@@ -82,7 +82,7 @@ function ViewOrders() {
 
   const handleSaveOrder = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${selectedOrder}`, {
+      const response = await fetch(`/api/orders/${selectedOrder}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -119,7 +119,7 @@ function ViewOrders() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${selectedOrder}`, {
+      const response = await fetch(`/api/orders/${selectedOrder}`, {
         method: 'DELETE'
       });
 
@@ -139,7 +139,7 @@ function ViewOrders() {
 
   const handleStatusChange = async (newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${selectedOrder}/status`, {
+      const response = await fetch(`/api/orders/${selectedOrder}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

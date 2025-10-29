@@ -27,7 +27,7 @@ function CreateOrder() {
 
   const fetchPartners = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/partners');
+      const response = await fetch('/api/partners');
       const data = await response.json();
       if (data.success) {
         setPartners(data.partners);
@@ -39,7 +39,7 @@ function CreateOrder() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/products');
+      const response = await fetch('/api/products');
       const data = await response.json();
       if (data.success) {
         setProducts(data.products);
@@ -153,7 +153,7 @@ function CreateOrder() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/orders', {
+      const response = await fetch('/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
